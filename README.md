@@ -1,40 +1,9 @@
-# How Arousal and Locomotion Jointly Influence Visual Cortex Activity in Natural Viewing Conditions
+# Cell-type-specific modulation of mouse visual cortex by locomotion during natural movie viewing
 
-## Project Overview
+Behavioral state strongly influences sensory cortex, but the magnitude, consistency, and cell-type specificity of these effects during naturalistic viewing are not fully understood, because past work often used simple stimuli [de Vries et al., 2020], few animals, or in-sample statistics. Locomotion raises cortical gain [Niell & Stryker, 2010], pupil size tracks fast arousal changes [Reimer et al., 2014], and Vip interneurons are strongly recruited by locomotion [Fu et al., 2014].
 
-Sensory processing in the brain is greatly influenced by behavioral states like movement and arousal as a response to the environment. However, how locomotion (movement) and changes in arousal (indicated by pupil size) work synergistically to affect the brain exposed to natural experiences is not yet fully understood. 
+In this study, we analyzed Allen Brain Observatory two-photon recordings from primary visual cortex (VISp) during a repeated natural movie (66 sessions, 60 mice: 37 excitatory-line, 7 Pvalb, 8 Sst, 8 Vip). Each cell’s movie-locked response was estimated from the other repeats and removed, leaving trial-to-trial residual activity, which was related to running with cross-validated ridge regression (whole repeats held out) and tested against a circular-shift null. The statistics were computed across mice.
 
-### Research Questions
+Findings showed that running explained a small but highly consistent part of population residual activity (median cross-validated R² = 0.028; p = 7×10⁻⁸), with about 80% of cells more active during running. The effect was strongly cell-type specific. The running-minus-still residual activity was 0.60 SD in Vip and 0.43 SD in Pvalb lines versus 0.05 SD in excitatory lines (Holm-corrected p = 1×10⁻⁷ and 0.004), and Sst did not differ from excitatory. No change preceded running onset in any class; Vip rose within seconds, whereas excitatory activity changed modestly and persistently through the bout.
 
-Locomotion has been shown to influence cortical gain and reliability of visual brain responses, while pupil size shows fast arousal-driven changes. However, most past research has focused on these factors in isolation or with simple visual stimuli, thereby leaving questions about how the combined effect influences state-to-state changes during real-life visual scenes. This project aims to address this gap by examining the joint influence of locomotion and arousal on visual cortex activity during naturalistic stimulation.
-
-## Methodology
-
-To understand this synergistic relationship, publicly available two-photon calcium imaging data extracted from the Allen Brain Observatory was analyzed, focusing on:
-
-- **209 neurons** in the primary visual cortex (VISp)
-- **Stimulus**: Natural movie presentation
-- **Behavioral measures**: Running speed and pupil size (as an arousal proxy)
-- **Analysis approach**: 
-  - Frame-by-frame generalized linear models for single-cell responses
-  - Principal component analysis (PCA) for population-level activity patterns
-  - Joint modeling of locomotion and arousal interactions at fine time scales
-
-## Key Findings
-
-### Single-Cell Level
-- Modest behavioral modulation was observed (median R² = 0.02), indicating that while individual neurons show some response to behavioral state, the modulation is relatively modest
-
-### Population Level
-Distinct and clear patterns emerged in low-dimensional space:
-- **PC4 (Running-Active Mode)**: Accounted for 22% of variance associated with locomotion, representing cortical activity during active running states
-- **PC3 (Running-Suppressed Mode)**: Represented suppressed activity during locomotion
-- **Arousal Component**: Pupil-linked arousal had minimal contribution to the observed population variance
-
-## Significance
-
-The novel findings reveal that behavior modulates visual cortex activity through **specific, organized low-dimensional population dynamics**, rather than simple uniform changes in response strength. Through joint modeling of locomotion and arousal under real-life naturalistic stimulation, these findings from single- and population-level analyses **bridge the gap between experimental observations and computational models**, providing critical insights into how behavior shapes sensory processing in the brain.
-
-## Data Source
-
-All analyses are based on publicly available data from the [Allen Brain Observatory](https://observatory.brain-map.org/), ensuring reproducibility and accessibility.
+In the eight (8) sessions with eye tracking (excitatory and Sst lines), pupil explained a small additional fraction beyond running (median ΔR² = 0.007, positive in 8 of 8 mice), unchanged after removing movie-locked pupil changes. The effect of locomotion on V1 during natural movies is therefore modest in the excitatory population but large in Vip and Pvalb interneurons, which constrains models of state-dependent gain control.
